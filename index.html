@@ -1,12 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Heide</title>
 </head>
 <body>
-    
+    <!-- ! Nav -->
+  <nav class="pink">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">Jerome</a>
+        <a href="#" class="button-collapse show-on-large right" data-activates="side-nav">
+          <i class="material-icons">menu</i>
+        </a>
+        <!-- ! main nav -->
+        <ul class="right hide-on-med-and-down">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li class=""><a href="posts.html">Profile</a></li>
+          <li class=""><a href="categories.html">Gallery</a></li>
+          <li class=""><a href="comment.html">Posts</a></li>
+        </ul>
+        <!-- ! side nav -->
+        <ul id="side-nav" class="side-nav pink">
+          <li>
+            <div class="user-view">
+              <div class="background"><img src="img/ocean.jpg">
+              </div>
+              <a href="#">
+                <img src="img/person1.jpg" class="circle">
+              </a>
+
+              <a href="">
+                <span class="name white-text">Jerome</span>
+              </a>
+              <a href="">
+                <span class="email white-text">jeromemico@gmail.com</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <a href="index.html" class="white-text">
+              <i class="material-icons white-text">dashboard</i>Home
+            </a>
+          </li>
+          <li>
+            <a href="posts.html" class="white-text">
+              <i class="material-icons white-text">mode_edit</i>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="categories.html" class="white-text">
+              <i class="material-icons white-text">categories</i>
+              Gallery
+            </a>
+          </li>
+          <li>
+            <a href="comments.html" class="white-text">
+              <i class="material-icons white-text">mode_comment</i>
+              Posts
+            </a>
+          </li>
+
+          <li class="subheader"> <a class="divider"></a></li>
+          <li >
+            <a>
+              <div class="subheader white-text">Account Controls</div>
+            </a>
+          </li>
+          <li>
+            <a href="" class="waves-effect white-text">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- * END Nav -->
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
+    <script>
+      $('.section').hide();
+      setTimeout(function() {
+        $(document).ready(function() {
+        //Init Side nav
+        $('.button-collapse').sideNav(
+          {
+            edge: 'right'
+          }
+        );
+        // Show Sections
+        $('.section').fadeIn();
+        // Hide Preloader
+        $('.loader').fadeOut();
+        
+        // Animate Numbers
+        $('.count').each(function() {
+          $(this).prop('Counter', 0).animate(
+            {
+              Counter: $(this).text()
+            }, 
+            {
+              duration: 3000,
+              easing: 'swing',
+              step: function(now){
+                $(this).text(Math.ceil(now));
+              }
+            })
+          });
+        }); 
+        createChart();
+      }, 1000);
+      
+    </script>
+
 </body>
 </html>
